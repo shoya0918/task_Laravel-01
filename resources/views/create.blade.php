@@ -1,9 +1,9 @@
-<h1>編集画面</h1>
-<form action="{{ route('regist.Post', ['id' => $post->id]) }}" method="post">
+<h1>新規作成画面</h1>
+<form action="{{ route('store.Post') }}" method="post">
     @csrf
     <div>
         タイトル
-        <input type="text" name="title" value="{{ $post->title }}">
+        <input type="text" name="title">
     </div>
 
 
@@ -18,7 +18,7 @@
     </div>
     <div>
         本文
-        <textarea name="content" id="" cols="30" rows="10">{{ $post->content }}</textarea>
+        <textarea name="content" id="" cols="30" rows="10"></textarea>
     </div>
     <input type="submit">
 </form>
