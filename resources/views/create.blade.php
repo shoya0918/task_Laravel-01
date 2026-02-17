@@ -1,5 +1,5 @@
 <h1>新規作成画面</h1>
-<form action="{{ route('store.Post') }}" method="post">
+<form action="{{ route('store.post') }}" method="post">
     @csrf
     <div>
         タイトル

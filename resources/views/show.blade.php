@@ -1,5 +1,5 @@
 <h1>編集画面</h1>
-<form action="{{ route('regist.Post', ['id' => $post->id]) }}" method="post">
+<form action="{{ route('regist.post', ['id' => $post->id]) }}" method="post">
     @csrf
     <div>
         タイトル
@@ -12,7 +12,11 @@
         <select name="author_id" id="">
             <option value="">選択してください</option>
             @foreach ($authors as $author)
-                <option value="{{ $author->id }}">{{ $author->author_name }}</option>
+                <option value="{{ $author->id }}"
+                @if ($author->id == $post->author_id)
+                    selected
+                @endif
+                >{{ $author->author_name }}</option>
             @endforeach
         </select>
     </div>
