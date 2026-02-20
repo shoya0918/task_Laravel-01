@@ -3,7 +3,11 @@
     @csrf
     <div>
         タイトル
-        <input type="text" name="title">
+        <input type="text" name="title" value="{{ old('title') }}">
+
+        @error('title')
+            <div>{{ $message }}</div>
+        @enderror
     </div>
 
 
@@ -12,13 +16,22 @@
         <select name="author_id" id="">
             <option value="">選択してください</option>
             @foreach ($authors as $author)
-                <option value="{{ $author->id }}">{{ $author->author_name }}</option>
+                <option value="{{ $author->id }}">
+                    {{old('author_id') == $author->id ? 'selected' : ''}}
+                    {{ $author->author_name }}
+                </option>
             @endforeach
         </select>
+        @error('author_id')
+            <div>{{ $message }}</div>
+        @enderror
     </div>
     <div>
         本文
-        <textarea name="content" id="" cols="30" rows="10"></textarea>
+        <textarea name="content" id="" cols="30" rows="10">{{ old('content') }}</textarea>
+        @error('content')
+            <div>{{ $message }}</div>
+        @enderror
     </div>
     <input type="submit">
 </form>
