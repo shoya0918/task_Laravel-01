@@ -16,8 +16,8 @@
         <select name="author_id" id="">
             <option value="">選択してください</option>
             @foreach ($authors as $author)
-                <option value="{{ $author->id }}">
-                    {{old('author_id') == $author->id ? 'selected' : ''}}
+                <option value="{{ $author->id }}"
+                    {{old('author_id') == $author->id ? 'selected' : ''}}>
                     {{ $author->author_name }}
                 </option>
             @endforeach
