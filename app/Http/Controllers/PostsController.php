@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Post;
 use App\Models\Author;
+use App\Http\Requests\PostRequest;
 
 use DB;
 use Log;
@@ -30,7 +31,7 @@ public function index()
         ]);
     }
 
-    public function storePost(Request $request)
+    public function storePost(PostRequest $request)
     {
         $model = new Post();
 
@@ -58,7 +59,7 @@ public function index()
         ]);
     }
 
-    public function registPost(Request $request, $id)
+    public function registPost(PostRequest $request, $id)
     {
         $model = new Post();
         try{
