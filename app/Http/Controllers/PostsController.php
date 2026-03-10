@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Author;
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Log;
 
 use DB;
 use Log;
@@ -50,8 +51,14 @@ public function index()
 
     public function showEdit($id)
     {
+        Log::info('This is an informational message.');
+        Log::info("Editing post with ID: {$id}");
+
+
         $post = Post::find($id);
         $authors = Author::all();
+
+        Log::info('Post data:', ['post' => $post]);
 
         return view ('show', [
             'post' => $post,
