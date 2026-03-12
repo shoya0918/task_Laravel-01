@@ -8,9 +8,7 @@ use App\Models\Post;
 use App\Models\Author;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Log;
-
-use DB;
-use Log;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
