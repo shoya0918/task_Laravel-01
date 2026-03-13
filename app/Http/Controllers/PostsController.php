@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Author;
 use App\Http\Requests\PostRequest;
-
-use DB;
-use Log;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class PostsController extends Controller
 {
@@ -50,8 +49,14 @@ public function index()
 
     public function showEdit($id)
     {
+        Log::info('This is an informational message.');
+        Log::info("Editing post with ID: {$id}");
+
+
         $post = Post::find($id);
         $authors = Author::all();
+
+        Log::info('Post data:', ['post' => $post]);
 
         return view ('show', [
             'post' => $post,
